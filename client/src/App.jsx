@@ -14,9 +14,14 @@ function App() {
   }, [])
 
   return (
-    <div>
-      
-    </div>
+    <>
+      <div>
+        {
+          (typeof backendData.users === 'undefined') ? (<p>Loading...</p>) : (backendData.users.map((user, i) => <p key={i}>{user}</p>))
+        }
+      </div>
+      <button type="button" className="btn btn-outline-danger">Primary</button>
+    </>
   );
 }
 

@@ -5,18 +5,27 @@ module.exports = {
         const finnhub = require('finnhub');
 
         const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-        api_key.apiKey = "cbqet6aad3i9b8tfgu70"
+        api_key.apiKey = "cbqejc2ad3i9b8tfgoug"
         const finnhubClient = new finnhub.DefaultApi()
 
-        finnhubClient.companyProfile2({'symbol': 'AAPL'}, (error, data, response) => {
+        finnhubClient.companyProfile2({ 'symbol': 'TSLA' }, (error, data, response) => {
             console.log(data)
-            res.send({success: true, apiData: data})
+            res.send({ success: true, apiData: data })
 
         });
 
     },
-    sendNudesOk: async (req, res) => {
+    symbolSearch: async (req, res) => {
+        const finnhub = require('finnhub');
 
+        const api_key = finnhub.ApiClient.instance.authentications['api_key'];
+        api_key.apiKey = "cbqejc2ad3i9b8tfgoug"
+        const finnhubClient = new finnhub.DefaultApi()
+
+        finnhubClient.symbolSearch('tesla', (error, data, response) => {
+            console.log(data)
+            res.send({ success: true, symbolData: data })
+        });
     }
 
 }

@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const { sendData, sendNudesOk } = require("../controllers/main")
+const { sendData, symbolSearch } = require("../controllers/main")
 
 router.get("/api", sendData)
-router.get("/sendNudes", sendNudesOk)
+router.get("/symbolSearch", symbolSearch)
 
 
 
